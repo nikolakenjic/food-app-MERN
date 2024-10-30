@@ -1,14 +1,15 @@
-import { Button } from '@/components/ui/button';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import HomePage from './pages/HomePage';
+import UserProfilePage from './pages/UserProfilePage';
 
 function App() {
-  return (
-    <>
-      <h1 className="text-3xl text-red-500">Food app</h1>
-      <div style={{ padding: '10px' }}>
-        <Button>Button</Button>
-      </div>
-    </>
-  );
+  const router = createBrowserRouter([
+    { path: '/', element: <HomePage /> },
+    { path: '/user-profile', element: <UserProfilePage /> },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;

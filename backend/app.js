@@ -5,6 +5,9 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 
+// Routes
+import restaurantRouter from './routes/restaurantRoutes.js';
+
 const app = express();
 
 // Get the current directory from the import.meta.url
@@ -20,8 +23,6 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json());
 app.use(cors());
 
-app.use('/api/v1', (req, res, next) => {
-  res.send('Restaurant');
-});
+app.use('/api/v1', restaurantRouter);
 
 export default app;
